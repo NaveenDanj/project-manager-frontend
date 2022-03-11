@@ -25,21 +25,13 @@
 
       <v-divider></v-divider>
 
-      <!-- <v-list dense>
-        <v-list-item v-for="item in items" :key="item.title" link>
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list> -->
-
       <DrawerMenuList />
 
       <v-divider></v-divider>
+
+      <!-- workspace menu list -->
+      <WorkSpaceMenuList />
+
     </v-navigation-drawer>
 
     <v-app-bar app color="white" dense elevation="1">
@@ -93,12 +85,15 @@
 <script>
 
 import DrawerMenuList from '@/components/Layout/DrawerMenuList.vue';
+import WorkSpaceMenuList from '@/components/Layout/WorkSpaceMenuList.vue';
+
 
 export default {
   name: "App",
 
   components : {
-    DrawerMenuList
+    DrawerMenuList,
+    WorkSpaceMenuList
   },
 
   data: () => ({
