@@ -20,7 +20,8 @@
                 <CompletedSprintList />
                 <InProgressSprintList />
                 <PendingSprintList />
-
+                <OpenSprintList />
+                
             </div>
             
         </v-container>
@@ -35,14 +36,15 @@
 import CompletedSprintList from './ListComponents/CompletedSprintList.vue'
 import InProgressSprintList from './ListComponents/InProgressSprintList.vue'
 import PendingSprintList from './ListComponents/PendingSprintList.vue'
-
+import OpenSprintList from './ListComponents/OpenSprintList.vue'
 
 export default {
     
     components : {
         CompletedSprintList,
         InProgressSprintList,
-        PendingSprintList
+        PendingSprintList,
+        OpenSprintList
     }
 
 }
