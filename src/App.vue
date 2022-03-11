@@ -11,7 +11,12 @@
           <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
         </v-list-item-avatar>
 
-        <v-list-item-title>John Leider</v-list-item-title>
+        <v-list-item-title>
+          John Leider<br />
+          <label style="font-size: 12px; font-weight: bold"
+            >@ShiftX Media
+          </label>
+        </v-list-item-title>
 
         <v-btn icon @click.stop="mini = !mini">
           <v-icon>mdi-chevron-left</v-icon>
@@ -20,7 +25,7 @@
 
       <v-divider></v-divider>
 
-      <v-list dense>
+      <!-- <v-list dense>
         <v-list-item v-for="item in items" :key="item.title" link>
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -30,13 +35,20 @@
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-      </v-list>
+      </v-list> -->
+
+      <DrawerMenuList />
+
+      <v-divider></v-divider>
     </v-navigation-drawer>
 
-    <v-app-bar app color="deep-purple accent-4" dense dark>
+    <v-app-bar app color="white" dense elevation="1">
       <v-app-bar-nav-icon @click.stop="mini = !mini"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Page title</v-toolbar-title>
+      <v-toolbar-title>
+        <v-chip class="ma-2" color="pink" label text-color="white">P</v-chip>
+        <label style="font-weight: bold">POS Development</label>
+      </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -79,16 +91,18 @@
 </template>
 
 <script>
+
+import DrawerMenuList from '@/components/Layout/DrawerMenuList.vue';
+
 export default {
   name: "App",
 
+  components : {
+    DrawerMenuList
+  },
+
   data: () => ({
     drawer: true,
-    items: [
-      { title: "Home", icon: "mdi-home-city" },
-      { title: "My Account", icon: "mdi-account" },
-      { title: "Users", icon: "mdi-account-group-outline" },
-    ],
     mini: true,
   }),
 };
