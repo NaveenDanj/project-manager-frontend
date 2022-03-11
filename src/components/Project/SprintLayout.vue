@@ -18,9 +18,8 @@
             <div class="pa-5">
                 
                 <CompletedSprintList />
-                <CompletedSprintList />
-                <CompletedSprintList />
-
+                <InProgressSprintList />
+                
             </div>
             
         </v-container>
@@ -33,12 +32,14 @@
 <script>
 
 import CompletedSprintList from './ListComponents/CompletedSprintList.vue'
+import InProgressSprintList from './ListComponents/InProgressSprintList.vue'
 
 
 export default {
     
     components : {
-        CompletedSprintList
+        CompletedSprintList,
+        InProgressSprintList
     }
 
 }
