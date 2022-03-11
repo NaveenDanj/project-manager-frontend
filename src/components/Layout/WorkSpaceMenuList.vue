@@ -29,9 +29,9 @@
 export default {
   data: () => ({
     items: [
-      { title: "Work Space", icon: "mdi-folder-table" },
-      { title: "My Account", icon: "mdi-folder-table" },
-      { title: "Notifications", icon: "mdi-folder-table" },
+      { title: "Project 1", icon: "mdi-folder-table" },
+      { title: "Project 2", icon: "mdi-folder-table" },
+      { title: "Project 3", icon: "mdi-folder-table" },
     ],
   }),
 };
