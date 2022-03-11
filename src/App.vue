@@ -98,7 +98,7 @@ export default {
 
   data: () => ({
     drawer: true,
-    mini: true,
+    mini: false,
   }),
 };
 </script>
