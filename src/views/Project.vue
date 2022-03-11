@@ -25,8 +25,8 @@ export default {
 <style scoped>
 
   .home{
-    height: 100vh;
     background-color: #EEEEEE;
+    min-height : 100vh;
   }
 
 

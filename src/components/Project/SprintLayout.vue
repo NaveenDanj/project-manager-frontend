@@ -16,7 +16,11 @@
             </v-chip>
 
             <div class="pa-5">
-                <label>Sprint Status lists</label>
+                
+                <CompletedSprintList />
+                <CompletedSprintList />
+                <CompletedSprintList />
+
             </div>
             
         </v-container>
@@ -27,8 +31,16 @@
 </template>
 
 <script>
+
+import CompletedSprintList from './ListComponents/CompletedSprintList.vue'
+
+
 export default {
     
+    components : {
+        CompletedSprintList
+    }
+
 }
 </script>
 
@@ -37,7 +49,7 @@ export default {
     .mainContainer {
 
         background-color : '#EEEEEE';
-        border : 1px solid gray;
+        border : 0.2px solid gray;
     }
 
     .btn {
