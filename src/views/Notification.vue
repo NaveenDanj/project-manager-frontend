@@ -3,13 +3,7 @@
   <div class="home">
 
     <UpperMenuBar />
-
-    <v-card class="justify-center mx-auto mt-5" style="width : 65%" >
-
-      <label>Notification</label>
-
-    </v-card>
-
+    <NotificationCard/>
     
   </div>
 
@@ -17,12 +11,13 @@
 
 <script>
 import UpperMenuBar from '@/components/WorkSpace/UpperMenuBar.vue';
-
+import NotificationCard from '@/components/Notification/NotificationCard.vue';
 
 export default {
 
   components : {
     UpperMenuBar,
+    NotificationCard
   }
 
 }
