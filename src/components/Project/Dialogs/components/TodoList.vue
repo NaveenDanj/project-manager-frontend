@@ -21,9 +21,9 @@
         </v-list-item>
 
     </v-list>
-    
+
     <div class="pl-3 pr-3 mt-0">
-        <v-text-field >
+        <v-text-field placeholder="Enter your sub task title here" >
             <v-btn icon slot="append">
                 <v-icon
                     color="red"

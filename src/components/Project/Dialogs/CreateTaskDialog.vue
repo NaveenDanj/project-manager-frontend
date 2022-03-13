@@ -65,7 +65,7 @@
 
       <v-card-text class="mt-5">
 
-        <v-textarea
+        <v-text-field
           label="Task Title"
           auto-grow
           outlined
@@ -73,7 +73,12 @@
           row-height="15"
           dense
           value="Cloud web project creation"
-        ></v-textarea>
+        ></v-text-field>
+
+        <v-textarea placeholder="Enter your task description here..." outlined>
+
+        </v-textarea>
+
 
         <!-- task meta data -->
         <div class="pa-0">
@@ -130,6 +135,22 @@
                     <option>Goal 1</option>
                     <option>Goal 2</option>
                   </select>
+                </td>
+
+              </tr>
+
+              <tr>
+                <td>
+                  <v-icon class="ml-1 mr-1"> mdi-clipboard-text-clock</v-icon>
+                  <label style="font-weight:bold;">Due Date</label>
+                </td>
+
+                <td class="pa-1">
+                  <input
+                    type="date"
+                    style="width: 100%; border: 1px solid black; padding-left: 5px"
+                  />
+                  
                 </td>
 
               </tr>
