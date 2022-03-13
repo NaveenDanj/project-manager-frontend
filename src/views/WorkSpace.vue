@@ -7,6 +7,7 @@
       <br />
 
       <AddNewUser />
+      <CreateProject />
 
     </div>
 
@@ -17,14 +18,15 @@
 // @ is an alias to /src
 import UpperMenuBar from '@/components/WorkSpace/UpperMenuBar.vue';
 import AddNewUser from '@/components/WorkSpace/AddNewUser.vue';
-
+import CreateProject from '@/components/WorkSpace/CreateProject.vue';
 
 export default {
   name: "Home",
 
   components: {
     UpperMenuBar,
-    AddNewUser
+    AddNewUser,
+    CreateProject
   },
 
 };
