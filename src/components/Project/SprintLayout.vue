@@ -3,25 +3,25 @@
     <div class="pa-5">
         <v-container class="mainContainer pa-2">
 
-            <v-chip class="mr-1">
-                <v-btn icon x-small class="mr-1">
-                    <v-icon>mdi-chevron-down </v-icon>
-                </v-btn>
-                <label>Sprint 1 (22/2/2022 - 06/03/2022)</label>
-            </v-chip>
+            <div class="d-flex">
+                <v-chip class="mr-1">
+                    <v-btn icon x-small class="mr-1">
+                        <v-icon>mdi-chevron-down </v-icon>
+                    </v-btn>
+                    <label>Sprint 1 (22/2/2022 - 06/03/2022)</label>
+                </v-chip>
 
-            <v-chip class="btn">
-                <v-icon class="mr-1" x-small>mdi-plus </v-icon>
-                <label class="btn">New Task</label>
-            </v-chip>
+                <CreateTaskDialog />
 
+            </div>
+            
             <div class="pa-5">
                 
                 <CompletedSprintList />
                 <InProgressSprintList />
                 <PendingSprintList />
                 <OpenSprintList />
-                
+
             </div>
             
         </v-container>
@@ -37,6 +37,8 @@ import CompletedSprintList from './ListComponents/CompletedSprintList.vue'
 import InProgressSprintList from './ListComponents/InProgressSprintList.vue'
 import PendingSprintList from './ListComponents/PendingSprintList.vue'
 import OpenSprintList from './ListComponents/OpenSprintList.vue'
+import CreateTaskDialog from './Dialogs/CreateTaskDialog.vue'
+
 
 export default {
     
@@ -44,7 +46,8 @@ export default {
         CompletedSprintList,
         InProgressSprintList,
         PendingSprintList,
-        OpenSprintList
+        OpenSprintList,
+        CreateTaskDialog
     }
 
 }
