@@ -3,25 +3,26 @@
     <UpperMenuBar />
     
     <div class="pa-3">
-      <h3>Workspace</h3>
+      <h3>My Account</h3>
     </div>
 
 
   </div>
 </template>
 
+
+
 <script>
-// @ is an alias to /src
 import UpperMenuBar from '@/components/WorkSpace/UpperMenuBar.vue';
 
+
 export default {
-  name: "Home",
+    name: "MyAccount",
 
-  components: {
-    UpperMenuBar,
-  },
-
-};
+    components: {
+        UpperMenuBar,
+    },
+}
 </script>
 
 <style scoped>

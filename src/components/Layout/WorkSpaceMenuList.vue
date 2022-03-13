@@ -29,7 +29,7 @@
 export default {
   data: () => ({
     items: [
-      { title: "Project 1", icon: "mdi-folder-table" },
+      { title: "POS Development", icon: "mdi-folder-table" },
       { title: "Project 2", icon: "mdi-folder-table" },
       { title: "Project 3", icon: "mdi-folder-table" },
     ],

@@ -15,11 +15,18 @@ const routes = [
     component: () =>import("../views/Project.vue"),
   },
   {
+    path: "/workspace",
+    name: "Workspace",
+    component: () =>import("../views/WorkSpace.vue"),
+  },
+  {
+    path: "/myaccount",
+    name: "MyAccount",
+    component: () =>import("../views/MyAccount.vue"),
+  },
+  {
     path: "/notification",
     name: "Notification",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>import("../views/Notification.vue"),
   },
 ];

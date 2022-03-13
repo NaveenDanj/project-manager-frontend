@@ -1,6 +1,6 @@
 <template>
   <v-list dense>
-    <v-list-item v-for="item in items" :key="item.title" link>
+    <v-list-item v-for="item in items" :key="item.title" link :to="item.to">
       <v-list-item-icon>
         <v-icon>{{ item.icon }}</v-icon>
       </v-list-item-icon>
@@ -16,9 +16,9 @@
 export default {
   data: () => ({
     items: [
-      { title: "Work Space", icon: "mdi-home-city" },
-      { title: "My Account", icon: "mdi-account" },
-      { title: "Notifications", icon: "mdi-bell" },
+      { title: "Work Space", icon: "mdi-home-city" , to : "/workspace"},
+      { title: "My Account", icon: "mdi-account" , to : "/myaccount"},
+      { title: "Notifications", icon: "mdi-bell" ,  to : "/notification" },
     ],
   }),
 };
