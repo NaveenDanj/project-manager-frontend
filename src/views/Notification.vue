@@ -4,7 +4,13 @@
 
     <UpperMenuBar />
     <NotificationCard/>
-    
+    <NotificationCard/>
+    <NotificationCard/>
+    <NotificationCard/>
+    <NotificationCard/>
+    <NotificationCard/>
+    <NotificationCard/>
+    <NotificationCard/>
   </div>
 
 </template>
