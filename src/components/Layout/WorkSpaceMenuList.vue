@@ -12,7 +12,7 @@
             </v-list-item-content>
         </v-list-item>
 
-      <v-list-item v-for="item in items" :key="item.title" link>
+      <v-list-item v-for="item in items" :key="item.title" link :to="item.to">
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-icon>
@@ -29,7 +29,7 @@
 export default {
   data: () => ({
     items: [
-      { title: "POS Development", icon: "mdi-folder-table" },
+      { title: "POS Development", icon: "mdi-folder-table" , to : '/project' },
       { title: "Project 2", icon: "mdi-folder-table" },
       { title: "Project 3", icon: "mdi-folder-table" },
     ],

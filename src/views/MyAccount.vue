@@ -1,12 +1,7 @@
 <template>
   <div class="home">
     <UpperMenuBar />
-    
-    <div class="pa-3">
-      <h3>My Account</h3>
-    </div>
-
-
+    <MyAccountSettings />
   </div>
 </template>
 
@@ -14,13 +9,14 @@
 
 <script>
 import UpperMenuBar from '@/components/WorkSpace/UpperMenuBar.vue';
-
+import MyAccountSettings from '@/components/MyAccount/MyAccountSettings.vue';
 
 export default {
     name: "MyAccount",
 
     components: {
         UpperMenuBar,
+        MyAccountSettings
     },
 }
 </script>
