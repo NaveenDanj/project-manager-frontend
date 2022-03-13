@@ -67,6 +67,21 @@
             />
           </td>
         </tr>
+
+        <tr>
+          <td>
+            <v-icon class="ml-1 mr-1">mdi-attachment</v-icon>
+            <label style="font-weight: bold">Attachment</label>
+          </td>
+
+          <td class="pa-1 d-flex" >
+            <input
+              type="file"
+              multiple
+            />
+            <a class="my-auto ml-1" href="#">Open</a>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
