@@ -6,7 +6,7 @@
 
     <v-list class="pa-3">
 
-        <v-list-item v-for="i in [1,2,3,4,5,6]" :key="i" dense>
+        <v-list-item v-for="i in [1,2]" :key="i" dense>
 
             <v-list-item-icon>
                 <v-btn icon>
