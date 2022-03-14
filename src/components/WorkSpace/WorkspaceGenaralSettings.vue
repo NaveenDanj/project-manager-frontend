@@ -15,7 +15,7 @@
                         label="Workspace Name"
                     />
 
-                    <v-text-field 
+                    <v-text-field
                         dense
                         outlined
                         rounded
@@ -23,8 +23,15 @@
                         readonly
                     />
 
+                    <v-textarea
+                        dense
+                        outlined
+                        rounded
+                        label="Workspace Description"
+                    />
+
                     <v-btn color="primary" class="mr-1" rounded>Update</v-btn>
-                     <v-btn color="error" rounded>Disable</v-btn>
+                    <v-btn color="error" rounded>Disable</v-btn>
 
                 </form>
 
