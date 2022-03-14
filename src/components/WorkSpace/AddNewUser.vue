@@ -14,7 +14,7 @@
           >
           <v-spacer></v-spacer>
 
-          <v-btn color=" primary ">ADD NEW USER</v-btn>
+          <AddNewUserDialog />
 
           <!-- <v-switch
             v-model="singleExpand"
@@ -41,7 +41,16 @@
 </template>
 
 <script>
+
+import AddNewUserDialog from './Dialog/AddNewUserDialog.vue';
+
+
 export default {
+
+  components : {
+    AddNewUserDialog
+  },
+
   data() {
     return {
 
@@ -68,14 +77,14 @@ export default {
           added: "22/2/2022",
         },
         {
-          id: 1,
+          id: 2,
           fullname: "Naveen Hettiwaththa",
           email: "naveenhettiwaththa@gmail.com",
           role : "User",
           added: "22/2/2022",
         },
         {
-          id: 1,
+          id: 3,
           fullname: "Naveen Hettiwaththa",
           email: "naveenhettiwaththa@gmail.com",
           role : "User",
