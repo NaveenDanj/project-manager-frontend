@@ -26,10 +26,7 @@
 
       <template v-slot:[`item.action`]="{}">
         <div class="dflex">
-          <v-btn icon x-small>
-            <v-icon>mdi-plus</v-icon>
-          </v-btn>
-
+          
           <v-btn icon x-small>
             <v-icon>mdi-delete</v-icon>
           </v-btn>

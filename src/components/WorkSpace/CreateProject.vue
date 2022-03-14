@@ -16,7 +16,7 @@
           <v-toolbar-title style="font-weight: bold">Projects in this work space</v-toolbar-title>
           <v-spacer></v-spacer>
 
-          <v-btn color=" primary ">ADD NEW Project</v-btn>
+          <AddNewProjectDialog />
 
           <!-- <v-switch
             v-model="singleExpand"
@@ -47,7 +47,15 @@
 </template>
 
 <script>
+
+  import AddNewProjectDialog from './Dialog/AddNewProjectDialog.vue';
+
   export default {
+
+    components : {
+      AddNewProjectDialog
+    },
+
     data () {
       return {
 
