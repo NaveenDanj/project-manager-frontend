@@ -9,7 +9,7 @@
         <v-card>
 
             <v-toolbar dark color="primary" elevation="0">
-                <v-btn icon dark @click="dialog = false">
+                <v-btn icon dark @click="handleCancel">
                 <v-icon>mdi-close</v-icon>
                 </v-btn>
 
@@ -26,8 +26,8 @@
             <v-card-actions>
                 <v-spacer></v-spacer>
 
-                <v-btn color="red" dark text @click="dialog = false">Cancel</v-btn>
-                <v-btn color="primary" text @click="dialog = false">Add</v-btn>
+                <v-btn color="red" dark text @click="handleCancel">Cancel</v-btn>
+                <v-btn color="primary" text @click="handleOk">Add</v-btn>
             </v-card-actions>
 
         </v-card>
@@ -39,7 +39,19 @@
 <script>
 export default {
 
-    props : ['title' , 'question']
+    props : ['title' , 'question' , 'dialog'],
+
+    methods : {
+
+        handleCancel(){
+            this.$emit('comfirmResult' , false);
+        },
+
+        handleOk(){
+            this.$emit('comfirmResult' , true);
+        }
+
+    }
     
 }
 </script>

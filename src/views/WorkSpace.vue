@@ -11,6 +11,14 @@
 
     </div>
 
+    <div class="pa-5">
+      <h3>Workspace genaral settings</h3>
+      <br />
+      <WorkspaceGenaralSettings />
+    </div>
+
+
+
   </div>
 </template>
 
@@ -19,6 +27,8 @@
 import UpperMenuBar from '@/components/WorkSpace/UpperMenuBar.vue';
 import AddNewUser from '@/components/WorkSpace/AddNewUser.vue';
 import CreateProject from '@/components/WorkSpace/CreateProject.vue';
+import WorkspaceGenaralSettings from '@/components/WorkSpace/WorkspaceGenaralSettings.vue';
+
 
 export default {
   name: "Home",
@@ -26,7 +36,8 @@ export default {
   components: {
     UpperMenuBar,
     AddNewUser,
-    CreateProject
+    CreateProject,
+    WorkspaceGenaralSettings
   },
 
 };
