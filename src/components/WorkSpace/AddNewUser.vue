@@ -1,19 +1,17 @@
 <template>
-
   <v-container>
-
     <v-data-table
-      :headers="dessertHeaders"
-      :items="desserts"
-      :single-expand="singleExpand"
-      :expanded.sync="expanded"
+      :headers="headers"
+      :items="users"
       item-key="id"
       hide-default-footer
       class="elevation-1"
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title style="font-weight: bold">Users in this work space</v-toolbar-title>
+          <v-toolbar-title style="font-weight: bold"
+            >Users in this work space</v-toolbar-title
+          >
           <v-spacer></v-spacer>
 
           <v-btn color=" primary ">ADD NEW USER</v-btn>
@@ -37,92 +35,55 @@
           </v-btn>
         </div>
       </template>
-
       
-
     </v-data-table>
-    
   </v-container>
-  
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
+export default {
+  data() {
+    return {
 
-        expanded: [],
+      headers: [
+        {
+          text: "#User ID",
+          align: "start",
+          sortable: false,
+          value: "id",
+        },
+        { text: "Full Name", value: "fullname" },
+        { text: "Email", value: "email" },
+        { text: "Role", value: "role" },
+        { text: "Added Date", value: "added" },
+        { text: "ACTION", value: "action" },
+      ],
 
-        singleExpand: false,
+      users: [
+        {
+          id: 1,
+          fullname: "Naveen Hettiwaththa",
+          email: "naveenhettiwaththa@gmail.com",
+          role : "Admin",
+          added: "22/2/2022",
+        },
+        {
+          id: 1,
+          fullname: "Naveen Hettiwaththa",
+          email: "naveenhettiwaththa@gmail.com",
+          role : "User",
+          added: "22/2/2022",
+        },
+        {
+          id: 1,
+          fullname: "Naveen Hettiwaththa",
+          email: "naveenhettiwaththa@gmail.com",
+          role : "User",
+          added: "22/2/2022",
+        },
 
-        dessertHeaders: [
-            {
-                text: 'Task',
-                align: 'start',
-                sortable: false,
-                value: 'task',
-            },
-            { text: 'ASSIGNEE', value: 'assignee' },
-            { text: 'DUE DATE', value: 'due_date' },
-            { text: 'PRIORITY', value: 'priority' },
-            { text: 'ACTION', value: 'action' },
-        ],
-
-        desserts: [
-          
-            {
-                id : 1,
-                task: 'Authentication Application creation for future usage',
-                assignee: 'Naveen | Lahiru',
-                due_date: '22/2/2022',
-                priority: 'High',
-            },
-
-            {
-                id : 2,
-                task: 'Authentication Application creation for future usage',
-                assignee: 'Naveen | Lahiru',
-                due_date: '22/2/2022',
-                priority: 'High',
-            },
-
-            {
-                id : 3,
-                task: 'Authentication Application creation for future usage',
-                assignee: 'Naveen | Lahiru',
-                due_date: '22/2/2022',
-                priority: 'High',
-            },
-
-
-            {
-                id : 4,
-                task: 'Authentication Application creation for future usage',
-                assignee: 'Naveen | Lahiru',
-                due_date: '22/2/2022',
-                priority: 'High',
-            },
-
-            {
-                id : 5,
-                task: 'Authentication Application creation for future usage',
-                assignee: 'Naveen | Lahiru',
-                due_date: '22/2/2022',
-                priority: 'High',
-            },
-
-            {
-                id : 6,
-                task: 'Authentication Application creation for future usage',
-                assignee: 'Naveen | Lahiru',
-                due_date: '22/2/2022',
-                priority: 'High',
-            },
-
-        ],
-      
-      }
-    
-    },
-  }
+      ],
+    };
+  },
+};
 </script>
