@@ -28,9 +28,8 @@
 
       <template v-slot:[`item.action`]="{}">
         <div class="dflex">
-          <v-btn icon x-small>
-            <v-icon>mdi-plus</v-icon>
-          </v-btn>
+          
+          <AddUserToProject />
 
           <v-btn icon x-small>
             <v-icon>mdi-delete</v-icon>
@@ -49,11 +48,14 @@
 <script>
 
   import AddNewProjectDialog from './Dialog/AddNewProjectDialog.vue';
+  import AddUserToProject from './Dialog/AddUserToProject.vue';
+
 
   export default {
 
     components : {
-      AddNewProjectDialog
+      AddNewProjectDialog,
+      AddUserToProject
     },
 
     data () {
