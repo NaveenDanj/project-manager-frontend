@@ -27,14 +27,17 @@
       </template>
 
       <template v-slot:[`item.action`]="{}">
+
         <div class="dflex">
           
           <AddUserToProject />
 
-          <v-btn icon x-small>
+          <!-- <v-btn icon x-small>
             <v-icon>mdi-delete</v-icon>
-          </v-btn>
+          </v-btn> -->
+
         </div>
+
       </template>
 
       
@@ -67,68 +70,45 @@
 
         dessertHeaders: [
             {
-                text: 'Task',
+                text: '#Project ID',
                 align: 'start',
                 sortable: false,
-                value: 'task',
+                value: 'id',
             },
-            { text: 'ASSIGNEE', value: 'assignee' },
-            { text: 'DUE DATE', value: 'due_date' },
-            { text: 'PRIORITY', value: 'priority' },
+            { text: 'Project Name', value: 'project_name' },
+            { text: 'Client Name', value: 'client_name' },
+            { text: 'Start Date', value: 'start_date' },
+            { text: 'Members', value: 'members' },
             { text: 'ACTION', value: 'action' },
         ],
 
         desserts: [
           
-            {
-                id : 1,
-                task: 'Authentication Application creation for future usage',
-                assignee: 'Naveen | Lahiru',
-                due_date: '22/2/2022',
-                priority: 'High',
-            },
+          {
+            id : 1,
+            project_name: 'Authentication Application creation for future usage',
+            client_name: 'Naveen | Lahiru',
+            start_date: '22/2/2022',
+            members: 'High',
+          },
 
-            {
-                id : 2,
-                task: 'Authentication Application creation for future usage',
-                assignee: 'Naveen | Lahiru',
-                due_date: '22/2/2022',
-                priority: 'High',
-            },
+          {
+            id : 2,
+            project_name: 'Authentication Application creation for future usage',
+            client_name: 'Naveen | Lahiru',
+            start_date: '22/2/2022',
+            members: 'High',
+          },
 
-            {
-                id : 3,
-                task: 'Authentication Application creation for future usage',
-                assignee: 'Naveen | Lahiru',
-                due_date: '22/2/2022',
-                priority: 'High',
-            },
+          {
+            id : 3,
+            project_name: 'Authentication Application creation for future usage',
+            client_name: 'Naveen | Lahiru',
+            start_date: '22/2/2022',
+            members: 'High',
+          },
 
-
-            {
-                id : 4,
-                task: 'Authentication Application creation for future usage',
-                assignee: 'Naveen | Lahiru',
-                due_date: '22/2/2022',
-                priority: 'High',
-            },
-
-            {
-                id : 5,
-                task: 'Authentication Application creation for future usage',
-                assignee: 'Naveen | Lahiru',
-                due_date: '22/2/2022',
-                priority: 'High',
-            },
-
-            {
-                id : 6,
-                task: 'Authentication Application creation for future usage',
-                assignee: 'Naveen | Lahiru',
-                due_date: '22/2/2022',
-                priority: 'High',
-            },
-
+           
         ],
       
       }

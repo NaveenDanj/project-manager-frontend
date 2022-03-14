@@ -18,7 +18,7 @@
           <v-icon>mdi-close</v-icon>
         </v-btn>
 
-        <v-toolbar-title>ADD NEW PROJECT</v-toolbar-title>
+        <v-toolbar-title>ADD USER TO PROJECT</v-toolbar-title>
       </v-toolbar>
 
       <v-card-text class="mt-5">
