@@ -19,7 +19,7 @@
                 <v-toolbar-title style="font-weight:bold;">Sprint List</v-toolbar-title>
                 <v-spacer></v-spacer>
 
-                <v-btn color=" primary ">ADD SPRINT</v-btn>
+                <AddSprintDialog />
 
             </v-toolbar>
 
@@ -52,11 +52,17 @@
 </template>
 
 <script>
+
+import AddSprintDialog from '@/components/Project/Dialogs/AddSprintDialog.vue'
+
 export default {
+
+    components : {
+        AddSprintDialog
+    },
     
     data () {
       return {
-
         expanded: [],
 
         singleExpand: false,

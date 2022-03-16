@@ -8,14 +8,14 @@
                     <v-btn icon x-small class="mr-1">
                         <v-icon>mdi-chevron-down </v-icon>
                     </v-btn>
-                    <label>Sprint 1 (22/2/2022 - 06/03/2022)</label>
+                    <label>POS Development Sprints</label>
                 </v-chip>
 
 
-                <v-chip class="btn ml-1">
+                <!-- <v-chip class="btn ml-1">
                     <v-icon class="mr-1" x-small>mdi-clipboard-list-outline </v-icon>
                     <label class="btn">Sprint List</label>
-                </v-chip>
+                </v-chip> -->
 
             </div>
             
