@@ -34,6 +34,15 @@ const routes = [
     name: "Notification",
     component: () =>import("../views/Notification.vue"),
   },
+
+  //auth routes
+  {
+    path : '/login',
+    name : 'Login',
+    component : () => import("../views/Auth/Login.vue")
+  }
+
+
 ];
 
 const router = new VueRouter({
