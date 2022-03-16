@@ -3,11 +3,20 @@
     <div class="mainContainer gradient-background">
         
         <div class="formContainer">
-            <center><h1>Welcome back!</h1></center>
+            <center><h1>Let's go!</h1></center>
 
             <form class="pt-5">
 
                 <v-alert v-if="false" type="error" outlined dense>Error</v-alert>
+
+                <v-text-field 
+                    type="text"
+                    rounded
+                    dense
+                    outlined
+                    label="Full Name"
+                    placeholder="Enter your full name" 
+                />
                 
                 <v-text-field 
                     type="email"
@@ -27,16 +36,13 @@
                     placeholder="Enter your password" 
                 />
 
-                <v-btn rounded class="purple" dark width="100%">Login</v-btn><br/>
+                <v-btn rounded class="purple" dark width="100%">Register</v-btn><br/>
 
-                <center class="mt-2"><v-btn @click="() => this.$router.push('/register')" text class=" blue--text" >Or register now</v-btn></center>
+                <center class="mt-2"><v-btn @click="() => this.$router.push('/login')" text class=" blue--text" >Or login now</v-btn></center>
 
             </form>
 
-
-
         </div>
-
 
     </div>
 
@@ -83,3 +89,4 @@
     }
 
 </style>
+
