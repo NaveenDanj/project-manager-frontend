@@ -15,6 +15,11 @@ const routes = [
     component: () =>import("../views/Project.vue"),
   },
   {
+    path: "/sprintlist",
+    name: "SprintList",
+    component: () =>import("../views/SprintList.vue"),
+  },
+  {
     path: "/workspace",
     name: "Workspace",
     component: () =>import("../views/WorkSpace.vue"),
