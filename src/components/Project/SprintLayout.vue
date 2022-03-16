@@ -13,7 +13,7 @@
 
                 <CreateTaskDialog />
 
-                <v-chip class="btn ml-1">
+                <v-chip @click="() => this.$router.push('/sprintlist')" class="btn ml-1">
                     <v-icon class="mr-1" x-small>mdi-clipboard-list-outline </v-icon>
                     <label class="btn">Sprint List</label>
                 </v-chip>

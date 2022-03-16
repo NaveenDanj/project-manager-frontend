@@ -16,7 +16,7 @@
                 <v-icon>mdi-close</v-icon>
                 </v-btn>
 
-                <v-toolbar-title>ADD NEW PROJECT</v-toolbar-title>
+                <v-toolbar-title>ADD NEW SPRINT</v-toolbar-title>
             </v-toolbar>
 
             <v-card-text class="mt-5">

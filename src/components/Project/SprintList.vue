@@ -3,12 +3,9 @@
     <v-container>
 
         <v-data-table
-            :headers="dessertHeaders"
-            :items="desserts"
-            :single-expand="singleExpand"
-            :expanded.sync="expanded"
+            :headers="headers"
+            :items="sprints"
             item-key="id"
-            show-expand
             class="elevation-0"
         >
         
@@ -40,11 +37,6 @@
 
         </template>
 
-
-        <template v-slot:expanded-item="{ headers, item }">
-            <td :colspan="headers.length">More info about {{ item.name }}</td>
-        </template>
-
         </v-data-table>
 
     </v-container>
@@ -63,24 +55,21 @@ export default {
     
     data () {
       return {
-        expanded: [],
 
-        singleExpand: false,
-
-        dessertHeaders: [
+        headers: [
             {
-                text: 'Task',
+                text: 'Sprint Name',
                 align: 'start',
                 sortable: false,
                 value: 'task',
             },
-            { text: 'ASSIGNEE', value: 'assignee' },
-            { text: 'DUE DATE', value: 'due_date' },
-            { text: 'PRIORITY', value: 'priority' },
+            { text: 'Project Name', value: 'assignee' },
+            { text: 'Starting Date', value: 'due_date' },
+            { text: 'Due Date', value: 'priority' },
             { text: 'ACTION', value: 'action' },
         ],
 
-        desserts: [
+        sprints: [
           
             {
                 id : 1,
