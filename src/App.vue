@@ -2,7 +2,7 @@
   <div>
 
     <!-- authenticated user -->
-    <v-app v-if="false">
+    <v-app v-if=" currentRoute != 'Login' && currentRoute != 'Register' ">
       <v-navigation-drawer
         app
         v-model="drawer"
@@ -99,6 +99,13 @@ import WorkSpaceMenuList from "@/components/Layout/WorkSpaceMenuList.vue";
 export default {
   name: "App",
 
+  watch:{
+    $route (to, from){
+      console.log('to', to , 'from', from);
+      this.currentRoute = to.name;
+    }
+  },
+
   components: {
     DrawerMenuList,
     WorkSpaceMenuList,
@@ -107,6 +114,7 @@ export default {
   data: () => ({
     drawer: true,
     mini: false,
+    currentRoute: '',
   }),
 };
 </script>
