@@ -7,7 +7,7 @@
 
             <v-form ref="registerForm" lazy-validation @submit.prevent="handleRegister" class="pt-5">
 
-                <v-alert v-if="false" type="error" outlined dense>Error</v-alert>
+                <v-alert v-if="error != '' " type="error" outlined dense>{{ error }}</v-alert>
 
                 <v-text-field 
                     type="text"

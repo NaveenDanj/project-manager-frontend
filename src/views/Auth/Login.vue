@@ -74,22 +74,16 @@ export default {
 
                 this.error = '';
 
-                const response = await login(this.form)
-
-                if(response.data.success){
-                    this.$router.push('/')
-                }else{
-                    this.error = response.data.message
-                }
+                const response = await login(this.form)    
+                this.$store.commit('setCurrentUser', response.data.user);
+                localStorage.setItem('token' , response.data.token);
+                this.$router.push('/')
 
             }catch(err){
                 this.error = err.response.data.message
             }
-
-
         
         }
-
 
     }
 
