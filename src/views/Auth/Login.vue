@@ -5,7 +5,7 @@
         <div class="formContainer">
             <center><h1>Welcome back!</h1></center>
 
-            <form class="pt-5" @submit.prevent="handleLogin" >
+            <v-form ref="loginForm" lazy-validation class="pt-5" @submit.prevent="handleLogin" >
 
                 <v-alert v-if=" error != '' " type="error" outlined dense>{{ error }}</v-alert>
                 
@@ -16,7 +16,10 @@
                     dense
                     outlined
                     label="Email"
-                    placeholder="Enter your email" 
+                    placeholder="Enter your email"
+                    :rules="[
+                        v => !!v || 'Email is required',
+                    ]"
                 />
 
                 <v-text-field
@@ -26,14 +29,17 @@
                     dense
                     outlined
                     label="Password"
-                    placeholder="Enter your password" 
+                    placeholder="Enter your password"
+                    :rules="[
+                        v => !!v || 'Password is required',
+                    ]"
                 />
 
                 <v-btn type="submit" rounded class="purple" dark width="100%">Login</v-btn><br/>
 
                 <center class="mt-2"><v-btn @click="() => this.$router.push('/register')" text class=" blue--text" >Or register now</v-btn></center>
 
-            </form>
+            </v-form>
 
 
 
@@ -69,6 +75,10 @@ export default {
     methods : {
 
         async handleLogin(){
+
+            if(!this.$refs.loginForm.validate() ){
+                return;
+            }
             
             try{
 
