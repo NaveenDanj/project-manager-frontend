@@ -106,6 +106,11 @@ export default {
     }
   },
 
+  //load
+  created () {
+    console.log("the data is : " , process.env.VUE_APP_BASE_API);
+  },
+
   components: {
     DrawerMenuList,
     WorkSpaceMenuList,
