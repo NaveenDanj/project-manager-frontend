@@ -5,11 +5,12 @@
         <div class="formContainer">
             <center><h1>Welcome back!</h1></center>
 
-            <form class="pt-5">
+            <form class="pt-5" @submit.prevent="handleLogin" >
 
-                <v-alert v-if="false" type="error" outlined dense>Error</v-alert>
+                <v-alert v-if=" error != '' " type="error" outlined dense>{{ error }}</v-alert>
                 
-                <v-text-field 
+                <v-text-field
+                    v-model="form.email"
                     type="email"
                     rounded
                     dense
@@ -19,6 +20,7 @@
                 />
 
                 <v-text-field
+                    v-model="form.password"
                     type="password"
                     rounded
                     dense
@@ -27,7 +29,7 @@
                     placeholder="Enter your password" 
                 />
 
-                <v-btn rounded class="purple" dark width="100%">Login</v-btn><br/>
+                <v-btn type="submit" rounded class="purple" dark width="100%">Login</v-btn><br/>
 
                 <center class="mt-2"><v-btn @click="() => this.$router.push('/register')" text class=" blue--text" >Or register now</v-btn></center>
 
@@ -41,6 +43,60 @@
     </div>
 
 </template>
+
+
+<script>
+
+import {login} from '../../Repository/Auth.js'
+
+export default {
+
+    data(){
+
+        return {
+
+            form : {
+                email: '',
+                password: '',
+            },
+
+            error : ''
+
+        }
+
+    },
+    
+    methods : {
+
+        async handleLogin(){
+            
+            try{
+
+                this.error = '';
+
+                const response = await login(this.form)
+
+                if(response.data.success){
+                    this.$router.push('/')
+                }else{
+                    this.error = response.data.message
+                }
+
+            }catch(err){
+                this.error = err.response.data.message
+            }
+
+
+        
+        }
+
+
+    }
+
+}
+</script>
+
+
 
 <style scoped>
 

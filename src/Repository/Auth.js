@@ -3,8 +3,13 @@ import service from "../API";
 // login axios repository function
 export const login = (data) => {
     return service({
-        url: "/login",
+        url: "/api/auth/login",
         method: "post",
+        headers : {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json"
+        },
+
         data
     });
 };
@@ -14,6 +19,10 @@ export const register = (data) => {
     return service({
         url: "/register",
         method: "post",
+        headers : {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json"
+        },
         data
     });
 };
