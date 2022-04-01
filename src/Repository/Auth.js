@@ -26,3 +26,20 @@ export const register = (data) => {
         data
     });
 };
+
+
+//get logged in user
+export const getUser = () => {
+
+    console.log('the user is : ' , localStorage.getItem('token'));
+
+    return service({
+        url: "/api/auth/me",
+        method: "get",
+        headers : {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json",
+            "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        }
+    });
+}

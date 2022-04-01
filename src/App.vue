@@ -1,4 +1,5 @@
 <template>
+
   <div>
 
     <!-- authenticated user -->
@@ -88,8 +89,8 @@
       <router-view></router-view>
     </v-app>
 
-
   </div>
+
 </template>
 
 <script>
@@ -101,15 +102,9 @@ export default {
 
   watch:{
     $route (to, from){
-      console.log('to', to , 'from', from);
       this.currentRoute = to.name;
     }
   },
-
-  //load
-  // created () {
-  //   console.log("the data is : " , process.env.VUE_APP_BASE_API);
-  // },
 
   components: {
     DrawerMenuList,
@@ -120,6 +115,7 @@ export default {
     drawer: true,
     mini: false,
     currentRoute: '',
+    loading : true
   }),
 };
 </script>
