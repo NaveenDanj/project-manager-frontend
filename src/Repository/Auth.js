@@ -17,7 +17,7 @@ export const login = (data) => {
 // register axios repository function
 export const register = (data) => {
     return service({
-        url: "/register",
+        url: "/api/auth/register",
         method: "post",
         headers : {
             "Content-Type" : "application/json",

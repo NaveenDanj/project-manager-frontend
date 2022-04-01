@@ -5,7 +5,7 @@
         <div class="formContainer">
             <center><h1>Let's go!</h1></center>
 
-            <form class="pt-5">
+            <v-form ref="registerForm" lazy-validation @submit.prevent="handleRegister" class="pt-5">
 
                 <v-alert v-if="false" type="error" outlined dense>Error</v-alert>
 
@@ -16,6 +16,11 @@
                     outlined
                     label="Full Name"
                     placeholder="Enter your full name" 
+                    :rules="[
+                        v => !!v || 'Name is required',
+                        v => (v && v.length <= 191) || 'Name must be less than 191 characters',
+                    ]"
+                    v-model="form.name"
                 />
                 
                 <v-text-field 
@@ -24,7 +29,11 @@
                     dense
                     outlined
                     label="Email"
-                    placeholder="Enter your email" 
+                    placeholder="Enter your email"
+                    :rules="[
+                        v => !!v || 'Email is required',
+                    ]"
+                    v-model="form.email"
                 />
 
                 <v-text-field
@@ -33,20 +42,81 @@
                     dense
                     outlined
                     label="Password"
-                    placeholder="Enter your password" 
+                    placeholder="Enter your password"
+                    :rules="[
+                        v => !!v || 'Password is required',
+                    ]"
+                    v-model="form.password"
                 />
 
-                <v-btn rounded class="purple" dark width="100%">Register</v-btn><br/>
+                <v-btn type="submit" rounded class="purple" dark width="100%">Register</v-btn><br/>
 
                 <center class="mt-2"><v-btn @click="() => this.$router.push('/login')" text class=" blue--text" >Or login now</v-btn></center>
 
-            </form>
+            </v-form>
 
         </div>
 
     </div>
 
 </template>
+
+<script>
+
+import {register} from '../../Repository/Auth';
+
+
+export default {
+    
+
+    data(){
+
+        return {
+                
+            form : {
+                name: '',
+                email: '',
+                password: '',
+            },
+
+            error: '',
+        }
+
+    },
+
+    methods : {
+
+        handleRegister(){
+
+            if(!this.$refs.registerForm.validate()){
+                return;
+            }
+
+            this.error = '';
+
+            let data = {
+                name: this.form.name,
+                email: this.form.email,
+                password: this.form.password,
+            }
+
+            register(data).then(response => {
+                this.$router.push('/login')
+            }).catch(error => {
+                this.error = error.response.data.message
+                console.log(error.response.data);
+            })
+
+
+        }
+
+    }
+
+
+}
+</script>
+
+
 
 <style scoped>
 
