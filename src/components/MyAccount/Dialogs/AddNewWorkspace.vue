@@ -54,7 +54,7 @@
                         dense
                         placeholder="Enter workspace description"
                         rounded
-                        v-model="workspaceName"
+                        v-model="description"
                         :rules="[
                             v => !!v || 'Workspace Description is required',
                             v => (v && v.length <= 191) || 'Workspace Description must be less than 255 characters',
@@ -87,6 +87,7 @@ export default {
     data(){
         return {
             workspaceName : '',
+            description : '',
             dialog : false,
             error : '',
         }
@@ -102,6 +103,7 @@ export default {
 
             let data = {
                 name : this.workspaceName,
+                description : this.description
             }
 
             try{
