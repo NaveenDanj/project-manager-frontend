@@ -48,6 +48,23 @@
 
                     ></v-text-field>
 
+                    <v-textarea
+                        label="Workspace Description"
+                        outlined
+                        dense
+                        placeholder="Enter workspace description"
+                        rounded
+                        v-model="workspaceName"
+                        :rules="[
+                            v => !!v || 'Workspace Description is required',
+                            v => (v && v.length <= 191) || 'Workspace Description must be less than 255 characters',
+                        ]"
+
+                    ></v-textarea>
+
+
+
+
                     <v-btn type="submit" rounded class="purple" dark >Add</v-btn>
 
                 </v-form>
@@ -62,6 +79,9 @@
 </template>
 
 <script>
+
+import {addWorkspace} from '../../../Repository/Workspace';
+
 export default {
     
     data(){
@@ -74,14 +94,23 @@ export default {
 
     methods : {
 
-        handleAddWorkspace(){
+        async handleAddWorkspace(){
 
             if( !this.$refs.form.validate() ){
                 return;
             }
 
             let data = {
-                workspaceName : this.workspaceName,
+                name : this.workspaceName,
+            }
+
+            try{
+                
+                let response = await addWorkspace(data);
+                this.$router.push('/workspace');
+            
+            }catch(err){
+                this.error = err.response.data.message;
             }
 
         }
