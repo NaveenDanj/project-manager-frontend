@@ -5,13 +5,18 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    currentUser: null
+    currentUser: null,
+    currentWorkspace : null,
   },
 
   mutations: {
 
     setCurrentUser(state, user) {
       state.currentUser = user;
+    },
+
+    setCurrentWorkspace(state, workspace) {
+      state.currentWorkspace = workspace;
     }
 
   },

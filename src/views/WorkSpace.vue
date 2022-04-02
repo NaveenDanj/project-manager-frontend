@@ -3,7 +3,13 @@
     <UpperMenuBar />
 
     <div class="pa-5">
-      <h3>Work space Settings</h3>
+      <h3>Work space Settings</h3> 
+
+      <v-chip class="btn mt-2 mb-2" v-bind="attrs" v-on="on">
+        <v-icon class="mr-1" x-small>mdi-location-exit</v-icon>
+        <label class="btn">Leave Workspace</label>
+      </v-chip>
+
       <br />
 
       <AddNewUser />
@@ -49,6 +55,5 @@ export default {
     min-height: 100vh;
     background-color: #EEEEEE;
   }
-
 
 </style>

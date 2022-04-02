@@ -40,3 +40,17 @@ export const getWorkspace = () => {
         }
     });
 }
+
+export const getUserWorkSpaces = (user_id) => {
+
+    return service({
+        url: `/api/auth/workspaces`,
+        method: "get",
+        headers : {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json",
+            "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        }
+
+    });
+}

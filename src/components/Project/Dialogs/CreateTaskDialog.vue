@@ -4,6 +4,7 @@
     v-model="dialog"
     max-width="650px"
     transition="dialog-bottom-transition"
+    scrollable="false"
   >
     <template v-slot:activator="{ on, attrs }">
       <!-- <v-btn color="primary" dark v-bind="attrs" v-on="on">
@@ -35,7 +36,7 @@
 
       <v-divider></v-divider>
 
-      <v-card-text class="mt-5">
+      <v-card-text class="mt-5 pt-1">
 
         <v-text-field
           label="Task Title"
@@ -108,4 +109,26 @@ export default {
 </script>
 
 <style scoped>
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+
 </style>
