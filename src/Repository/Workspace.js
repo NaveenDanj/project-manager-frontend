@@ -13,3 +13,30 @@ export const addWorkspace = (data) => {
         data
     });
 }
+
+// update workspace data
+export const updateWorkspace = (data , id) => {
+    return service({
+        url: `/api/workspace/${id}`,
+        method: "put",
+        headers : {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json",
+            "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        },
+        data
+    });
+}
+
+//get workspace data
+export const getWorkspace = () => {
+    return service({
+        url: `/api/workspace/get/${localStorage.getItem("current_workspace")}`,
+        method: "get",
+        headers : {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json",
+            "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        }
+    });
+}
