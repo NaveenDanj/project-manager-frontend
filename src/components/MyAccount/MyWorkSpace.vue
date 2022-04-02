@@ -10,9 +10,7 @@
             </v-avatar>
 
             <v-avatar style="width : 90px; height : 90px; border : 1px solid black;" dark class="mt-5">
-                <v-btn icon text>
-                    <label style="color:black; font-weight:bold; font-size : 25px;">+</label>
-                </v-btn>
+                <AddNewWorkspace />
             </v-avatar>
 
 
@@ -23,3 +21,17 @@
     </div>
 
 </template>
+
+
+<script>
+import AddNewWorkspace from "./Dialogs/AddNewWorkspace.vue";
+
+
+export default {
+    
+    components : {
+        AddNewWorkspace
+    }
+
+}
+</script>

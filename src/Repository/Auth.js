@@ -31,8 +31,6 @@ export const register = (data) => {
 //get logged in user
 export const getUser = () => {
 
-    console.log('the user is : ' , localStorage.getItem('token'));
-
     return service({
         url: "/api/auth/me",
         method: "get",
