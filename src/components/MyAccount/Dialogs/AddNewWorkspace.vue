@@ -103,7 +103,7 @@ export default {
 
             let data = {
                 name : this.workspaceName,
-                description : this.description
+                description : this.description,
             }
 
             try{

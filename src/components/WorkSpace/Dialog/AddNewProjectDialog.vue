@@ -57,6 +57,23 @@
 
           </v-row>
 
+          <v-row>
+
+            <v-col cols="12" md="12" sm="12">
+
+              <v-textarea
+                label="Description"
+                placeholder="Enter project description"
+                outlined
+                dense
+                rounded
+              ></v-textarea>
+
+            </v-col>
+
+
+          </v-row>
+
           <v-row no-gutters>
             <v-col cols="12" md="12">
 

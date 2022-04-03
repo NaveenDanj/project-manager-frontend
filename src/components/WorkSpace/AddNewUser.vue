@@ -51,7 +51,7 @@
 import AddNewUserDialog from './Dialog/AddNewUserDialog.vue';
 import CommonComfirmDialog from '../Dialogs/CommonComfirmDialog.vue';
 
-import {getWorkspace} from './../../Repository/Workspace'
+import {getWorkspace , removeUser} from './../../Repository/Workspace'
 
 export default {
 
@@ -112,15 +112,27 @@ export default {
       this.confirmDialogShow = true;
     },
 
-    handleComfirmResult(result){
+    async handleComfirmResult(result){
 
       if(result){
 
         // api call to delete user from workspace
-        
+        let data = {
+          workspace_id : localStorage.getItem('current_workspace'),
+          user_id : this.selectedItem.id
+        }
 
+        try{
+          let workspace_id = localStorage.getItem('current_workspace');
+          let response = await removeUser(data , workspace_id);
+          this.loadWorkspaceUsers();
+
+        }catch(err){
+          console.log(err);
+        }
 
         this.confirmDialogShow = false;
+        
       }else{
         this.confirmDialogShow = false;
       }
