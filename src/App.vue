@@ -96,6 +96,9 @@
 <script>
 import DrawerMenuList from "@/components/Layout/DrawerMenuList.vue";
 import WorkSpaceMenuList from "@/components/Layout/WorkSpaceMenuList.vue";
+import {getWorkspace} from './Repository/Workspace'
+
+
 
 export default {
   name: "App",
@@ -104,6 +107,10 @@ export default {
     $route (to, from){
       this.currentRoute = to.name;
     }
+  },
+
+  created(){
+    this.loadWorkspaceData();
   },
 
   components: {
@@ -117,5 +124,34 @@ export default {
     currentRoute: '',
     loading : true
   }),
+
+
+  methods : {
+
+    async loadWorkspaceData(){
+
+      let workspace_id = localStorage.getItem('current_workspace');
+
+      if(!workspace_id){
+        return;
+      }
+
+      try{
+
+        let response = await getWorkspace();
+        this.$store.commit('setCurrentWorkspace', response.data.workspace);
+
+
+      }catch(err){
+        console.log(err);
+      }
+
+    }
+
+
+
+  }
+
+
 };
 </script>

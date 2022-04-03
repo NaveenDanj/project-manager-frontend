@@ -54,3 +54,18 @@ export const getUserWorkSpaces = (user_id) => {
 
     });
 }
+
+// invite user to workspace
+export const inviteUser = (data , workspace_id) => {
+    return service({
+        url: `/api/workspace/invite-user/${workspace_id}`,
+        method: "post",
+        headers : {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json",
+            "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        },
+        data
+    });
+}
+

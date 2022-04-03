@@ -23,15 +23,15 @@
 
             <v-card-text class="mt-5">
                 
-                <form>
+                <v-form ref="addUserForm" @submit.prevent="handleAddUserForm" lazy-validation>
 
-                    <div v-if="false">
+                    <div v-if="error != '' ">
                         <v-alert
                             dense
                             outlined
                             type="error"
                         >
-                            I'm a dense alert with the <strong>outlined</strong> prop and a <strong>type</strong> of error
+                            {{ error }}
                         </v-alert><br />
                     </div>
                     
@@ -39,17 +39,8 @@
 
                     <v-row no-gutters>
 
-                        <v-col cols="12" md="6" sm="12">
-                            <v-text-field
-                                label="Full Name"
-                                outlined
-                                dense
-                                placeholder="Enter user full name"
-                                rounded
-                            ></v-text-field>
-                        </v-col>
 
-                        <v-col cols="12" md="6" sm="12">
+                        <v-col cols="12" md="12" sm="12">
                             <v-text-field
                                 type="email"
                                 label="Email"
@@ -57,6 +48,11 @@
                                 outlined
                                 dense
                                 rounded
+                                :rules="[
+                                    v => !!v || 'Email is required',
+                                    v => /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(v) || 'Email is invalid',
+                                ]"
+                                v-model="form.email"
                             ></v-text-field>
                         </v-col>
 
@@ -71,23 +67,29 @@
                                 dense
                                 rounded
                                 label="Select user role"
+                                disabled
                             ></v-select>
                         </v-col>
 
                     </v-row>
 
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+
+                        <v-btn color="primary" text @click="() => {
+                            dialog = false;
+                            error = '';
+                            form.email = '';
+                            $refs.addUserForm.reset();
+                        } ">Cancel</v-btn>
+                        
+                        <v-btn color="primary" type="submit" text >Add</v-btn>
+                    </v-card-actions>
 
 
-                </form>
+                </v-form>
 
             </v-card-text>
-
-            <v-card-actions>
-                <v-spacer></v-spacer>
-
-                <v-btn color="primary" text @click="dialog = false">Cancel</v-btn>
-                <v-btn color="primary" text @click="dialog = false">Add</v-btn>
-            </v-card-actions>
 
         </v-card>
 
@@ -96,11 +98,53 @@
 </template>
 
 <script>
+
+import {inviteUser} from '../../../Repository/Workspace'
+
 export default {
     
     data : (() => ({
         dialog : false,
-    }))
+
+        form : {
+            email : ''
+        },
+
+        error : ''
+
+    })),
+
+    methods : {
+
+        async handleAddUserForm(){
+            
+            if(!this.$refs.addUserForm.validate()){
+                return;
+            }
+
+            let data = {
+                email : this.form.email,
+            }
+
+            let workspace_id = localStorage.getItem('current_workspace');
+
+            try{
+
+                let response = await inviteUser(data , workspace_id);
+                this.dialog = false;
+                this.$refs.addUserForm.reset();
+                this.form.email = '';
+
+            }catch(err){
+                this.error = err.response.data.message;
+            }
+
+
+        },
+
+
+
+    }
 
 }
 </script>
