@@ -41,3 +41,19 @@ export const getUser = () => {
         }
     });
 }
+
+
+// update user data
+export const updateUser = (data) => {
+    
+    return service({
+        url: "/api/auth/me",
+        method: "put",
+        headers : {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json",
+            "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        },
+        data
+    });
+}
