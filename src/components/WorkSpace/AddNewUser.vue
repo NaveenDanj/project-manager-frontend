@@ -40,12 +40,16 @@
 <script>
 
 import AddNewUserDialog from './Dialog/AddNewUserDialog.vue';
-
+import {getWorkspace} from './../../Repository/Workspace'
 
 export default {
 
   components : {
     AddNewUserDialog
+  },
+
+  created(){
+    this.loadWorkspaceUsers();
   },
 
   data() {
@@ -58,38 +62,39 @@ export default {
           sortable: false,
           value: "id",
         },
-        { text: "Full Name", value: "fullname" },
+        { text: "Full Name", value: "name" },
         { text: "Email", value: "email" },
-        { text: "Role", value: "role" },
-        { text: "Added Date", value: "added" },
+        { text: "Added Date", value: "created_at" },
         { text: "ACTION", value: "action" },
       ],
 
-      users: [
-        {
-          id: 1,
-          fullname: "Naveen Hettiwaththa",
-          email: "naveenhettiwaththa@gmail.com",
-          role : "Admin",
-          added: "22/2/2022",
-        },
-        {
-          id: 2,
-          fullname: "Naveen Hettiwaththa",
-          email: "naveenhettiwaththa@gmail.com",
-          role : "User",
-          added: "22/2/2022",
-        },
-        {
-          id: 3,
-          fullname: "Naveen Hettiwaththa",
-          email: "naveenhettiwaththa@gmail.com",
-          role : "User",
-          added: "22/2/2022",
-        },
-
-      ],
+      users: [],
     };
   },
+
+  methods : {
+
+    async loadWorkspaceUsers(){
+
+      this.users = [];
+
+      try{
+        let workspace_id = localStorage.getItem('current_workspace');
+        let response = await getWorkspace(workspace_id);
+        this.users = response.data.workspace.users;
+
+      }catch(err){
+        console.log(err);
+      }
+
+
+    }
+
+
+  }
+
+
+
+
 };
 </script>
