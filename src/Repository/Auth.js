@@ -57,3 +57,17 @@ export const updateUser = (data) => {
         data
     });
 }
+
+// reset password
+export const resetPassword = (data) => {
+    return service({
+        url: "/api/auth/reset-password",
+        method: "post",
+        headers : {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json",
+            "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        },
+        data
+    });
+}

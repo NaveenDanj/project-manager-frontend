@@ -4,7 +4,7 @@
     v-model="dialog"
     max-width="650px"
     transition="dialog-bottom-transition"
-    scrollable="false"
+    :scrollable="false"
   >
     <template v-slot:activator="{ on, attrs }">
       <!-- <v-btn color="primary" dark v-bind="attrs" v-on="on">
