@@ -3,8 +3,8 @@
   <v-container>
 
     <v-data-table
-      :headers="dessertHeaders"
-      :items="desserts"
+      :headers="headers"
+      :items="projects"
       :single-expand="singleExpand"
       :expanded.sync="expanded"
       item-key="id"
@@ -52,7 +52,7 @@
 
   import AddNewProjectDialog from './Dialog/AddNewProjectDialog.vue';
   import AddUserToProject from './Dialog/AddUserToProject.vue';
-
+  import {getProjects} from '../../Repository/Project';
 
   export default {
 
@@ -61,6 +61,12 @@
       AddUserToProject
     },
 
+
+    created(){
+      this.loadProjects();
+    },
+
+
     data () {
       return {
 
@@ -68,51 +74,43 @@
 
         singleExpand: false,
 
-        dessertHeaders: [
+        headers: [
             {
                 text: '#Project ID',
                 align: 'start',
                 sortable: false,
                 value: 'id',
             },
-            { text: 'Project Name', value: 'project_name' },
+            { text: 'Project Name', value: 'name' },
             { text: 'Client Name', value: 'client_name' },
-            { text: 'Start Date', value: 'start_date' },
-            { text: 'Members', value: 'members' },
+            { text: 'Start Date', value: 'created_at' },
             { text: 'ACTION', value: 'action' },
         ],
 
-        desserts: [
-          
-          {
-            id : 1,
-            project_name: 'Authentication Application creation for future usage',
-            client_name: 'Naveen | Lahiru',
-            start_date: '22/2/2022',
-            members: 'High',
-          },
-
-          {
-            id : 2,
-            project_name: 'Authentication Application creation for future usage',
-            client_name: 'Naveen | Lahiru',
-            start_date: '22/2/2022',
-            members: 'High',
-          },
-
-          {
-            id : 3,
-            project_name: 'Authentication Application creation for future usage',
-            client_name: 'Naveen | Lahiru',
-            start_date: '22/2/2022',
-            members: 'High',
-          },
-
-           
-        ],
+        projects: [],
       
       }
     
     },
+
+    methods : {
+
+      async loadProjects(){
+
+        try{
+
+          let response = await getProjects();
+          this.projects = response.data.workspace.projects;
+
+        }catch(err){
+          console.log(err);
+        }
+
+      }
+
+
+    }
+
+
   }
 </script>
