@@ -24,28 +24,40 @@
         </v-toolbar>
       </template>
 
-      <template v-slot:[`item.action`]="{}">
+      <template v-slot:[`item.action`]="{item}">
         <div class="dflex">
           
-          <v-btn icon x-small>
+          <v-btn @click="handleOpenConfirm(item)" icon x-small>
             <v-icon>mdi-delete</v-icon>
           </v-btn>
         </div>
       </template>
       
     </v-data-table>
+
+    <CommonComfirmDialog 
+      :dialog="confirmDialogShow" 
+      title="Delete user from this workspace"
+      question="Are you sure you want to delete this user from this workspace?"
+      @comfirmResult="handleComfirmResult"
+    />
+
+
   </v-container>
 </template>
 
 <script>
 
 import AddNewUserDialog from './Dialog/AddNewUserDialog.vue';
+import CommonComfirmDialog from '../Dialogs/CommonComfirmDialog.vue';
+
 import {getWorkspace} from './../../Repository/Workspace'
 
 export default {
 
   components : {
-    AddNewUserDialog
+    AddNewUserDialog,
+    CommonComfirmDialog
   },
 
   created(){
@@ -67,8 +79,12 @@ export default {
         { text: "Added Date", value: "created_at" },
         { text: "ACTION", value: "action" },
       ],
-
       users: [],
+
+      selectedItem : null,
+      confirmDialogShow : false,
+
+
     };
   },
 
@@ -87,6 +103,28 @@ export default {
         console.log(err);
       }
 
+
+    },
+
+    handleOpenConfirm(item){
+      console.log(item);
+      this.selectedItem = item;
+      this.confirmDialogShow = true;
+    },
+
+    handleComfirmResult(result){
+
+      if(result){
+
+        // api call to delete user from workspace
+        
+
+
+        this.confirmDialogShow = false;
+      }else{
+        this.confirmDialogShow = false;
+      }
+      this.selectedItem = null;
 
     }
 

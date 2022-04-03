@@ -19,7 +19,7 @@
 
             <v-card-text class="mt-5">
 
-                <h1>{{ question }}</h1>
+                <h3>{{ question }}</h3>
 
             </v-card-text>
 
@@ -27,7 +27,7 @@
                 <v-spacer></v-spacer>
 
                 <v-btn color="red" dark text @click="handleCancel">Cancel</v-btn>
-                <v-btn color="primary" text @click="handleOk">Add</v-btn>
+                <v-btn color="primary" text @click="handleOk">OK</v-btn>
             </v-card-actions>
 
         </v-card>

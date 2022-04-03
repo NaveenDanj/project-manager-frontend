@@ -69,3 +69,16 @@ export const inviteUser = (data , workspace_id) => {
     });
 }
 
+// remove user from workspace
+export const removeUser = (data , workspace_id) => {
+    return service({
+        url: `/api/workspace/remove-user/${workspace_id}`,
+        method: "post",
+        headers : {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json",
+            "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        },
+        data
+    });
+}
