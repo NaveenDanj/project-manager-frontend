@@ -13,3 +13,17 @@ export const getProjects = () => {
         }
     });
 }
+
+// create project
+export const createProject = (data) => {
+    return service({
+        url: `/api/project/${localStorage.getItem("current_workspace")}`,
+        method: "post",
+        headers : {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json",
+            "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        },
+        data
+    });
+}
